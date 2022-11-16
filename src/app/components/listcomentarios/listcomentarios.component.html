@@ -18,7 +18,7 @@
   </thead>
   <tbody *ngFor=" let comentario of listComentarios">
     <tr>
-      <td>{{comentario.titulo}}</td>
+      <td> <a [routerLink]="['/ver', 1]" href="">{{comentario.titulo}}</a></td>
       <td>{{comentario.creador}}</td>
       <td>{{comentario.fechacreacion | date: 'dd/MM/yyyy'}}</td>
       <td>
