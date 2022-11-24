@@ -6,7 +6,7 @@
     <button routerLink="agregar"  class="btn btn-primary float-end">Nuevo Comentario</button>
   </div>
 </div>
-<table *ngIf="listComentarios.length > 0" class="table table-hover mt-3">
+<table *ngIf="listComentarios.length > 0" class="table mt-3">
   <thead>
     <tr>
       <th>Titulo</th>
@@ -18,14 +18,14 @@
   </thead>
   <tbody *ngFor=" let comentario of listComentarios">
     <tr>
-      <td> <a [routerLink]="['/ver', 1]" href="">{{comentario.titulo}}</a></td>
+      <td> <a [routerLink]="['/ver', comentario.id]" href="">{{comentario.titulo}}</a></td>
       <td>{{comentario.creador}}</td>
-      <td>{{comentario.fechacreacion | date: 'dd/MM/yyyy'}}</td>
+      <td>{{comentario.fechacreacion}}</td>
       <td>
         <button style="width:100%" class="btn btn-primary btn-sm float-end">Editar</button>
       </td>
       <td>
-        <button style="width:100%" class="btn btn-danger btn-sm float-end">Eliminar</button>
+        <button (click)="eliminarComentario(comentario.id)" style="width:100%" class="btn btn-danger btn-sm float-end">Eliminar</button>
       </td>
     </tr>
   </tbody>
