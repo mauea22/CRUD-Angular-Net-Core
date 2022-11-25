@@ -1,1 +1,6 @@
-<p>vercomentario works!</p>
+<div *ngIf="comentario != undefined">
+  <h3>{{comentario.titulo}}</h3>
+  <hr>
+  <p><strong>{{comentario.texto}}</strong></p>
+  <p>Su creador fue  {{comentario.creador}}</p>
+</div>
