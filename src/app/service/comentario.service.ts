@@ -14,8 +14,9 @@ export class ComentarioService {
   constructor( private http: HttpClient ) { }
 
   getComentarios(id: number) {
-    return this.http.get(this.myAppUrl + this.myApiUrl + id)
+    return this.http.get(this.myAppUrl + this.myApiUrl + id);
   }
+
   getListComentarios(): Observable<any>{
     return this.http.get(this.myAppUrl + this.myApiUrl);
   }
@@ -28,5 +29,8 @@ export class ComentarioService {
       return this.http.post( this.myAppUrl + this.myApiUrl, comentario);
   }
 
+  updateComentario( id: number, comentario: Comentario): Observable<any>{
+      return this.http.put(this.myAppUrl + this.myApiUrl + id, comentario)
+  }
 
 }
