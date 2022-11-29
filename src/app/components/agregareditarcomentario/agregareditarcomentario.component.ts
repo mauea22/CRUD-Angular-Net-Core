@@ -41,8 +41,10 @@ export class AgregareditarcomentarioComponent implements OnInit {
 
       this._comentarioService.getComentarios(this.id).subscribe( data => {
         console.log(data);
+
         this.comentario = data;
         this.agregarComentario.patchValue({
+          id: this.id,
           titulo: this.comentario.titulo,
           texto: this.comentario.texto,
           creador: this.comentario.creador,
@@ -76,8 +78,10 @@ export class AgregareditarcomentarioComponent implements OnInit {
         fechacreacion : this.comentario.fechacreacion
       }
 
+      this._comentarioService.updateComentario( this.id , comentario).subscribe( data=>{
+        this.router.navigate(['/']);
+      })
     }
-
   }
 
 
